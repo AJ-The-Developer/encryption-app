@@ -21,18 +21,16 @@ export class VernamComponent implements OnInit {
   ngOnInit(): void {}
 
   encryptload() {
-    this.vernamService.vernam(this.inputtext, this.keytext);
-    this.outputtext = this.vernamService.vernam(this.inputtext, this.keytext);
     console.log(this.inputtext);
     console.log(this.keytext);
-    console.log(this.outputtext);
+    console.log(this.vernamService.generateKey(this.inputtext, this.keytext));
+    console.log(this.vernamService.vernam(this.inputtext, this.vernamService.generateKey(this.inputtext, this.keytext)))
   }
 
   decryptload() {
-    this.vernamService.vernam(this.outputtext, this.keytext);
-    this.outputtext = this.vernamService.vernam(this.outputtext, this.keytext);
     console.log(this.inputtext);
     console.log(this.keytext);
-    console.log(this.outputtext);
+    console.log(this.vernamService.generateKey(this.inputtext, this.keytext));
+    console.log(this.vernamService.vernam(this.inputtext, this.vernamService.generateKey(this.inputtext, this.keytext)));
   }
 }
