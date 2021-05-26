@@ -4,9 +4,8 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class VigenereService {
-  plaintext: string = "GEEKSFORGEEKS";
+  plaintext: string = "GCYCZFMLYLEIM";
   keyword: string = "AYUSH";
-
 
 
   constructor() { }
@@ -28,9 +27,6 @@ export class VigenereService {
   vigenereEncrypt(plaintext: string, keyword: string){
     plaintext = plaintext.toUpperCase()
     let ciphertext: string = '';
-
-        
-    
     for (let i = 0; i < plaintext.length; i++)
     {
         let pos1 = plaintext.charCodeAt(i);
@@ -39,8 +35,19 @@ export class VigenereService {
         if(char > 90) char -= 26;
         ciphertext += String.fromCharCode(char) 
     }
-    return ciphertext;  
+    return ciphertext;
+  }
 
+  vigenereDecrypt(cipertext: string, keyword: string) {
+    let plaintext: string = '';
+    for (let i = 0; i < cipertext.length; i++) {
+      let pos1 = cipertext.charCodeAt(i);
+      let pos2 = keyword.charCodeAt(i) - 65;
+      let char = pos1 - pos2;
+      if(char < 65) char += 26;
+        plaintext += String.fromCharCode(char) 
+      }
+    return plaintext;
   }
 
   

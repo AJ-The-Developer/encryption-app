@@ -31,7 +31,7 @@ export class VernamService {
     for (let i = 0; i < input.length; i++)
     {
       let pos1 = input.charCodeAt(i);
-      let pos2 = key.charCodeAt(i);
+      let pos2 = key.charCodeAt(i) - 65;
       let char = pos1 + pos2;
       if(char > 90) char -= 26;
       ciphertext += String.fromCharCode(char) 
