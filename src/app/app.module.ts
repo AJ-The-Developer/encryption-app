@@ -8,10 +8,13 @@ import { MatButtonModule } from '@angular/material/button';
 import { VigenereComponent } from './components/vigenere/vigenere.component';
 import { VernamComponent } from './components/vernam/vernam.component';
 import { TranspositionComponent } from './components/transposition/transposition.component';
+import { MatInputModule } from '@angular/material/input';
+import { FormsModule } from '@angular/forms';
+import {MatIconModule} from '@angular/material/icon'
 
 @NgModule({
   declarations: [AppComponent, SidebarComponent, VigenereComponent, VernamComponent, TranspositionComponent],
-  imports: [BrowserModule, BrowserAnimationsModule, MatButtonModule],
+  imports: [BrowserModule, BrowserAnimationsModule, MatButtonModule, MatInputModule, FormsModule, MatIconModule],
   providers: [],
   bootstrap: [AppComponent],
 })
