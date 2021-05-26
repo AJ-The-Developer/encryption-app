@@ -1,1 +1,30 @@
-<p>vernam works!</p>
+<div class="vernam-main">
+    <div class="key-input input-div">
+        <mat-form-field class="form-field">
+            <mat-label>Text</mat-label>
+            <input matInput type="text" [(ngModel)]="inputtext">
+            <button mat-button *ngIf="inputtext" matSuffix mat-icon-button aria-label="Clear" (click)="inputtext=''">
+              <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+    </div>
+
+    <div class="key-input input-div">
+        <mat-form-field class="form-field">
+            <mat-label>Key</mat-label>
+            <input matInput type="text" [(ngModel)]="keytext">
+            <button mat-button *ngIf="keytext" matSuffix mat-icon-button aria-label="Clear" (click)="keytext=''">
+              <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+    </div>
+
+    <div class="input-div">
+        <button mat-button class="button-ed" (click)="this.encryptload()">Encrypt</button>
+        <button mat-button class="button-ed" (click)="this.decryptload()">Decrypt</button>
+    </div>
+
+    <p>{{outputtext}}</p>
+
+
+</div>
