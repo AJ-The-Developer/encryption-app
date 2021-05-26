@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { VigenereService } from 'src/app/services/vigenere.service';
 
 @Component({
   selector: 'app-vigenere',
@@ -7,7 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VigenereComponent implements OnInit {
 
-  constructor() { }
+  constructor(vigenereService: VigenereService) {
+    let plaintext = vigenereService.plaintext;
+    let keyword = vigenereService.keyword
+    let key = vigenereService.generateKey(plaintext,keyword)
+
+    let ciphertext = vigenereService.vigenereEncrypt(plaintext, key);
+
+    console.log(plaintext);
+    console.log(keyword);
+    console.log(key);
+    console.log(ciphertext);
+    
+    
+    
+    //let key = vigenereService.generateKey(vigenereService.plaintext, vigenereService.keyword)
+    //console.log(key);
+   }
 
   ngOnInit(): void {
   }
