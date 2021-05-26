@@ -13,6 +13,7 @@ export class VigenereComponent implements OnInit {
     let keyword = vigenereService.keyword
     let key = vigenereService.generateKey(plaintext,keyword)
 
+    let ciphertext = vigenereService.vigenereDecrypt(plaintext, key);
 
     console.log(plaintext);
     console.log(keyword);
