@@ -1,0 +1,16 @@
+.sidebar {
+    padding-top: 25vh;
+    padding-bottom: 25vh;
+    width: 250px;
+    height: 100vh;
+    background-color: #323232;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+button {
+    width: 200px;
+}
