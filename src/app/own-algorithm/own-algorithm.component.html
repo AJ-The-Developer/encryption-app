@@ -1,0 +1,42 @@
+<div class="own-main">
+    <div class="key-input input-div">
+        <mat-form-field class="form-field">
+            <mat-label>Text</mat-label>
+            <input matInput type="text" [(ngModel)]="inputtext">
+            <button mat-button *ngIf="inputtext" matSuffix mat-icon-button aria-label="Clear" (click)="inputtext=''">
+              <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+    </div>
+
+    <div class="key-input input-div">
+        <mat-form-field class="form-field">
+            <mat-label>Key1</mat-label>
+            <input matInput type="text" [(ngModel)]="key1">
+            <button mat-button *ngIf="key1" matSuffix mat-icon-button aria-label="Clear" (click)="key1=''">
+              <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+    </div>
+
+    <div class="key-input input-div">
+        <mat-form-field class="form-field">
+            <mat-label>Key2</mat-label>
+            <input matInput type="text" [(ngModel)]="key2">
+            <button mat-button *ngIf="key2" matSuffix mat-icon-button aria-label="Clear" (click)="key2=''">
+              <mat-icon>close</mat-icon>
+            </button>
+        </mat-form-field>
+    </div>
+
+    <div class="input-div">
+        <button mat-button class="button-ed" (click)="this.encryptload()">Encrypt</button>
+        <button mat-button class="button-ed" (click)="this.decryptload()">Decrypt</button>
+    </div>
+
+    <p>{{outputtext}}</p>
+    <p>{{keys[0]}}</p>
+    <p>{{keys[1]}}</p>
+
+
+</div>

@@ -8,8 +8,8 @@ import { VernamService } from 'src/app/services/vernam.service';
 })
 
 export class VernamComponent implements OnInit {
-  inputtext = 'thisistheteststring';
-  keytext = 'mykey';
+  inputtext = 'aaaabbbb';
+  keytext = 'jan';
   outputtext = '';
   
   vernamService;

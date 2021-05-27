@@ -28,8 +28,17 @@ export class VernamService {
 
     return input.replace(/[\s\S]/g, function(c, i) {
       return fromCharCode(key.charCodeAt(i % l_key) ^ c.charCodeAt(0));
-    });      
-  };
+    });
+  }
+
+  /*
+   let l_key = key.length;
+    let fromCharCode = String.fromCharCode;
+
+    return input.replace(/[\s\S]/g, function(c, i) {
+      return fromCharCode(key.charCodeAt(i % l_key) ^ c.charCodeAt(0));
+    });
+    */
 
   /*
     input = input.toUpperCase();
