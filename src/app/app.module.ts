@@ -10,10 +10,11 @@ import { VernamComponent } from './components/vernam/vernam.component';
 import { TranspositionComponent } from './components/transposition/transposition.component';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule } from '@angular/forms';
-import {MatIconModule} from '@angular/material/icon'
+import {MatIconModule} from '@angular/material/icon';
+import { FileuploadComponent } from './components/fileupload/fileupload.component'
 
 @NgModule({
-  declarations: [AppComponent, SidebarComponent, VigenereComponent, VernamComponent, TranspositionComponent],
+  declarations: [AppComponent, SidebarComponent, VigenereComponent, VernamComponent, TranspositionComponent, FileuploadComponent],
   imports: [BrowserModule, BrowserAnimationsModule, MatButtonModule, MatInputModule, FormsModule, MatIconModule],
   providers: [],
   bootstrap: [AppComponent],
