@@ -6,7 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./fileupload.component.scss']
 })
 export class FileuploadComponent implements OnInit {
-  dataUrl;
+  fileContents;
 
   constructor() { }
 
@@ -21,9 +21,9 @@ export class FileuploadComponent implements OnInit {
   
       reader.onload = (e: any) => {
         
-        let fileContents = e.target.result.split(',');
-        this.dataUrl = fileContents;
-        console.log();
+        this.fileContents = e.target.result.split(',')[1];
+        console.log(this.fileContents);
+        
         
         // console.log(this.fileCountents.split('.'));
         
