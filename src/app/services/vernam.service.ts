@@ -5,8 +5,6 @@ import { Injectable } from '@angular/core';
 })
 
 export class VernamService {
-  plaintext: String = "Enterprise-wide incremental Graphic Interface";
-  key: String = "jan";
 
   constructor() { }
 
@@ -25,6 +23,15 @@ export class VernamService {
   }
 
   vernam(input, key) {
+    let l_key = key.length;
+    let fromCharCode = String.fromCharCode;
+
+    return input.replace(/[\s\S]/g, function(c, i) {
+      return fromCharCode(key.charCodeAt(i % l_key) ^ c.charCodeAt(0));
+    });      
+  };
+
+  /*
     input = input.toUpperCase();
     let ciphertext: string = '';
 
@@ -38,7 +45,7 @@ export class VernamService {
     }
     return ciphertext;
   }
-    /*
+    
     let fromCharCode = String.fromCharCode;
 
     return input.replace(/[\s\S]/g, function(c, i) {
