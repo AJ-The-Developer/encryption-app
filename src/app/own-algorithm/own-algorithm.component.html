@@ -1,42 +1,94 @@
-<div class="own-main">
-    <div class="key-input input-div">
-        <mat-form-field class="form-field">
-            <mat-label>Text</mat-label>
-            <input matInput type="text" [(ngModel)]="inputtext">
-            <button mat-button *ngIf="inputtext" matSuffix mat-icon-button aria-label="Clear" (click)="inputtext=''">
-              <mat-icon>close</mat-icon>
-            </button>
-        </mat-form-field>
-    </div>
+<h1>Own Algorithm</h1>
+<hr>
+<div class="toggleContainer">
+    <mat-button-toggle-group name="toggle" aria-label="Font Style">
+        <mat-button-toggle value="Encrypt"(change)="encryptToggle()" checked>Encrypt</mat-button-toggle>
+        <mat-button-toggle value="Decrypt" (change)="decryptToggle()">Decrypt</mat-button-toggle>
+    </mat-button-toggle-group>
+</div>
 
-    <div class="key-input input-div">
-        <mat-form-field class="form-field">
-            <mat-label>Key1</mat-label>
-            <input matInput type="text" [(ngModel)]="key1">
-            <button mat-button *ngIf="key1" matSuffix mat-icon-button aria-label="Clear" (click)="key1=''">
-              <mat-icon>close</mat-icon>
-            </button>
-        </mat-form-field>
-    </div>
+<div *ngIf="isEncrypt" class="cipherContainer">
+    <mat-vertical-stepper [linear]="isLinear" #stepper>
 
-    <div class="key-input input-div">
-        <mat-form-field class="form-field">
-            <mat-label>Key2</mat-label>
-            <input matInput type="text" [(ngModel)]="key2">
-            <button mat-button *ngIf="key2" matSuffix mat-icon-button aria-label="Clear" (click)="key2=''">
-              <mat-icon>close</mat-icon>
-            </button>
-        </mat-form-field>
-    </div>
+    <mat-step>
+        <ng-template matStepLabel>Upload File</ng-template>
+        <div>
+            <app-fileupload (fileContentsEmitter)="getDataUrlString($event)" isEncrypt="true"></app-fileupload>
+            <button mat-button matStepperNext>Next</button>
+        </div>
+    </mat-step>
 
-    <div class="input-div">
-        <button mat-button class="button-ed" (click)="this.encryptload()">Encrypt</button>
-        <button mat-button class="button-ed" (click)="this.decryptload()">Decrypt</button>
-    </div>
+    <mat-step [stepControl]="nameGroup">
+        <form [formGroup]="nameGroup">
+            <ng-template matStepLabel>Enter File Name</ng-template>
+            <mat-form-field>
+                <mat-label>File Name</mat-label>
+                <input matInput [(ngModel)]="fileName" formControlName="nameCtrl" required>
+            </mat-form-field>
+            <div>
+                <button class="encDecBtn" mat-button (click)="encrypt()">Encrypt</button>
+                <button mat-button matStepperNext>Next</button>
+            </div>
+        </form>
+    </mat-step>
+    QAJJTASGQJ XXGVYUUVJC
+    <mat-step>
+        <form>
+            <ng-template matStepLabel>Write Down Secret Keys</ng-template>
+            <div>
+                    <p>Key 1: {{keyword1}}</p> 
+                    <p>Key 2: {{keyword2}}</p>
+            </div>
+            <div>
+                <button mat-button (click)="stepper.reset()">Reset</button>
+            </div>
+        </form>
+    </mat-step>
 
-    <p>{{outputtext}}</p>
-    <p>{{keys[0]}}</p>
-    <p>{{keys[1]}}</p>
+    </mat-vertical-stepper>
+</div>
 
+<div *ngIf="!isEncrypt" class="cipherContainer">
+    <mat-vertical-stepper [linear]="isLinear" #stepper>
 
+        <mat-step>
+            <ng-template matStepLabel>Upload File</ng-template>
+            <div>
+                <app-fileupload (fileContentsEmitter)="getDataUrlString($event)" isEncrypt="false"></app-fileupload>
+                <button mat-button matStepperNext>Next</button>
+            </div>
+        </mat-step>
+    
+        <mat-step [stepControl]="keyGroup">
+            <form [formGroup]="keyGroup">
+                <ng-template matStepLabel>Enter Secret Keys</ng-template>
+                <mat-form-field>
+                    <mat-label>Secret Key</mat-label>
+                    <input matInput [(ngModel)]="keyword1" formControlName="key1Ctrl" required>
+                </mat-form-field>
+                <mat-form-field>
+                    <mat-label>Secret Key</mat-label>
+                    <input matInput [(ngModel)]="keyword2" formControlName="key2Ctrl" required>
+                </mat-form-field>
+                <div>
+                    <button mat-button matStepperNext>Next</button>
+                </div>
+            </form>
+        </mat-step>
+    
+        <mat-step [stepControl]="nameGroup">
+            <form [formGroup]="nameGroup">
+                <ng-template matStepLabel>Enter File Name With Extension</ng-template>
+                <mat-form-field>
+                    <mat-label>File Name</mat-label>
+                    <input matInput [(ngModel)]="fileName" formControlName="nameCtrl" required>
+                </mat-form-field>
+                <div>
+                    <button mat-button (click)="stepper.reset()">Reset</button>
+                    <button  class="encDecBtn" mat-button (click)="decrypt()">Encrypt</button>
+                </div>
+            </form>
+        </mat-step>
+    
+        </mat-vertical-stepper>
 </div>

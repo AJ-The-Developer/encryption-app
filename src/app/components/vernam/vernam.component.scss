@@ -1,14 +1,53 @@
-.form-field {
-    width: auto;
-    height: auto;
+div {
+    box-sizing: border-box;
 }
 
-.vernam-main {
-    position:absolute; 
-    top:0; left:0; right:0; bottom:0; 
-    margin:auto;
+.toggleContainer {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 25px;
 }
 
-.input-div {
-    padding: 3px;
+
+h1 {
+    color: #58d9a3;
+    text-align: center;
+    font-size: 2.2rem;
 }
+
+hr {
+    color: #58d9a3;
+    width: 75%;
+    margin-bottom: 25px;
+}
+
+.mat-button-toggle {
+    background-color: #58d9a3;
+    margin: auto;
+}
+
+.mat-button-toggle-checked {
+    background-color: #37414d;
+    color: #58d9a3;
+}
+
+
+button {
+    background-color: #58d9a3;
+    width: 75px;
+}
+
+.encDecBtn {
+    margin-left: 25px;
+}
+
+mat-vertical-stepper {
+    margin-left: 100px;
+    margin-right: 100px;
+}
+
+::ng-deep .mat-step-header .mat-step-icon-selected {
+    background-color: #58d9a3; 
+    color: black;
+ }
+ 

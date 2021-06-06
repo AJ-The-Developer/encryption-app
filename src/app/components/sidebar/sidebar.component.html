@@ -1,5 +1,6 @@
 <div class="sidebar">
-    <button mat-raised-button color="primary">Vigenere</button>
-    <button mat-raised-button color="primary">Vernam</button>
-    <button mat-raised-button color="primary">Transposition Cipher</button>
+    <button mat-raised-button (click)="vigenereBtnClick()">Vigenere</button>
+    <button mat-raised-button (click)="vernamBtnClick()">Vernam</button>
+    <button mat-raised-button (click)="transpositionBtnClick()">Transposition Cipher</button>
+    <button mat-raised-button (click)="ownAlgBtnClick()">Own Algorithm</button>
 </div>

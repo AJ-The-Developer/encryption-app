@@ -9,14 +9,36 @@ import { VigenereComponent } from './components/vigenere/vigenere.component';
 import { VernamComponent } from './components/vernam/vernam.component';
 import { TranspositionComponent } from './components/transposition/transposition.component';
 import { MatInputModule } from '@angular/material/input';
-import { FormsModule } from '@angular/forms';
-import {MatIconModule} from '@angular/material/icon';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MatIconModule } from '@angular/material/icon';
 import { FileuploadComponent } from './components/fileupload/fileupload.component';
-import { OwnAlgorithmComponent } from './own-algorithm/own-algorithm.component'
+import { OwnAlgorithmComponent } from './own-algorithm/own-algorithm.component';
+import { HeaderComponent } from './components/header/header.component';
+import { MatButtonToggleModule } from '@angular/material/button-toggle';
+import { MatStepperModule } from '@angular/material/stepper';
 
 @NgModule({
-  declarations: [AppComponent, SidebarComponent, VigenereComponent, VernamComponent, TranspositionComponent, FileuploadComponent, OwnAlgorithmComponent],
-  imports: [BrowserModule, BrowserAnimationsModule, MatButtonModule, MatInputModule, FormsModule, MatIconModule],
+  declarations: [
+    AppComponent,
+    SidebarComponent,
+    VigenereComponent,
+    VernamComponent,
+    TranspositionComponent,
+    FileuploadComponent,
+    OwnAlgorithmComponent,
+    HeaderComponent,
+  ],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    MatButtonModule,
+    MatInputModule,
+    FormsModule,
+    MatIconModule,
+    MatButtonToggleModule,
+    MatStepperModule,
+    ReactiveFormsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

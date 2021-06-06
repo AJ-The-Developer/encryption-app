@@ -1,0 +1,9 @@
+.container {
+    display: flex;
+}
+
+.cipherContainer {
+    width: calc(100vw - 250px);
+    height: 100vh;
+    background-color: #37414d;
+}

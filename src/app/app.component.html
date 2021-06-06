@@ -1,9 +1,11 @@
-<!--<app-sidebar></app-sidebar>-->
-<!--<app-fileupload></app-fileupload>-->
-<!--<app-transposition></app-transposition>-->
-<!--<app-vernam></app-vernam>-->
-<!--<app-vignere></app-vignere>-->
-<!--<app-own-algorithm></app-own-algorithm>-->
-
-<app-own-algorithm></app-own-algorithm>
-<app-fileupload></app-fileupload>
+<!-- 
+<app-header></app-header> -->
+<div class="container">
+  <app-sidebar (toggleVigenere)="toggleVigenere()" (toggleVernam)="toggleVernam()" (toggleTransposition)="toggleTransposition()" (toggleOwnAlg)="toggleOwnAlg()"></app-sidebar> 
+  <div class="cipherContainer">
+    <app-vigenere *ngIf="isVigenere"></app-vigenere>
+    <app-vernam *ngIf="isVernam"></app-vernam>
+    <app-transposition *ngIf="isTransposition"></app-transposition>
+    <app-own-algorithm *ngIf="isOwnAlg"></app-own-algorithm>
+  </div>
+</div>
